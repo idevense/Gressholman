@@ -25,6 +25,16 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php
+if ( is_front_page()) { console.log('yupyup');?>
+	<div class="home-video">
+	<video autoplay loop muted>
+			<source src="<?php echo THEME_VIDEO_PATH; ?>/Gressholman_loop2.mp4" type="video/mp4">Browser is not supportive today
+		</video>
+	</div>
+	<div class="home-overlay"></div>
+<?php } ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'wprig' ); ?></a>
 		<header id="masthead" class="site-header">
@@ -33,18 +43,9 @@
 					<?php the_header_image_tag(); ?>
 				</figure>
 			<?php endif; ?>
+
 			<div class="site-branding">
 				<?php the_custom_logo(); ?>
-				<?php if ( is_front_page() && is_home() ) : ?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php else : ?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php endif; ?>
-
-				<?php $wprig_description = get_bloginfo( 'description', 'display' ); ?>
-				<?php if ( $wprig_description || is_customize_preview() ) : ?>
-					<p class="site-description"><?php echo $wprig_description; /* WPCS: xss ok. */ ?></p>
-				<?php endif; ?>
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Main menu', 'wprig' ); ?>"
@@ -85,4 +86,5 @@
 					?>
 				</div>
 			</nav><!-- #site-navigation -->
+		<!--	<div class="label">21/6 - 22/6</div> -->
 		</header><!-- #masthead -->

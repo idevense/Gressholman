@@ -432,13 +432,13 @@ template {
 # Layouts
 --------------------------------------------------------------*/
 .site {
-  margin: 0 auto;
+  margin: 0.5em 0.5em;
   max-width: 100%;
 }
 
 @media (--sidebar-query) {
 	.has-sidebar .site {
-		margin: 0 1em;
+	/*margin: 0.5em 0.5em;*/
 		display: grid;
 		grid-template-columns: 3fr 1fr;
 		grid-gap: 2rem;
@@ -454,6 +454,10 @@ template {
 		min-width: 0;
 	}
 
+	.partner-wrapper {
+		grid-column: 1;
+		min-width: 0;
+	}
 	.primary-sidebar {
 		grid-column: 2;
 		min-width: 0;
@@ -549,7 +553,7 @@ html {
 }
 
 body {
-	background: #fff;
+	background: rgb(38, 121, 62);
 	/* Fallback for when there is no custom background color defined. */ }
 
 blockquote, q {
@@ -718,6 +722,12 @@ textarea {
 
 .site-header {
 	padding-bottom: 1em;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: baseline;
+	max-width: var(--content-width)rem;
+	margin: 0 auto;
 }
 
 .header-image {
@@ -731,12 +741,13 @@ textarea {
 
 .custom-logo-link {
 	display: inline-block;
-	margin: 0 auto 1em;
+	margin: 0 auto;
 }
 
 .site-branding {
 	text-align: center;
-	padding: 60px 0 1.75em;
+	padding: 1em 0 1em;
+	width: 100%;
 }
 
 .site-title {
@@ -762,14 +773,18 @@ textarea {
 	word-wrap: break-word;
 	color: #757575;
 }
-
+@media (--wide-menu-query) {
+	.site-branding {
+		width: auto;
+	}
+}
 /*--------------------------------------------------------------
 ## Main navigation menu
 --------------------------------------------------------------*/
 .main-navigation {
 	clear: both;
 	display: block;
-	margin: 0 auto 2em;
+	margin: 0 auto;
 	padding: 0 1em;
 	max-width: var(--content-width)rem;
 	font-family: var(--highlight-font-family);
@@ -989,13 +1004,20 @@ textarea {
 # Footer
 --------------------------------------------------------------*/
 .site-footer {
-	margin: 1em 0 0;
+	margin: 0;
 	padding: 2em 0;
 	font-family: var(--highlight-font-family);
+	background-color: var(--site-footer-bgcolor);
 }
 
 .site-info {
+	display: flex;
+	justify-content: center;
 	text-align: center;
+}
+
+.f_section {
+	padding: 0 1em;
 }
 
 /*--------------------------------------------------------------

@@ -2,9 +2,105 @@
  * Custom styles for the front-page.php template.
  */
 
-@media (--sidebar-query) {
+ body, html {
+	 height: 100%;
+	 margin: 0;
+ }
+/*
+ html {
+	 margin:0;
+	background: url('../images/bckimg.jpg') no-repeat center top fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+ }
+*/
+.home-video {
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: -1;
+}
+.home-video video {
+	object-fit: cover;
+	min-width: 100%;
+	min-height: 100%;
+}
+.home-overlay {
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	opacity: 0.4;
+	background: #f3f4f7;
+}
+ .hero-image {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/logo_Test.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position: relative;
+	overflow: hidden;
+	height: 50%;
+  }
+
+  .hero-text {
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+}
+
+  .hero-text button {
+	border: none;
+	outline: 0;
+	display: inline-block;
+	padding: 10px 25px;
+	color: black;
+	background-color: #ddd;
+	text-align: center;
+	cursor: pointer;
+  }
+
+  .hero-text button:hover {
+	background-color: #555;
+	color: white;
+  }
+
+  .label {
+	  white-space: nowrap;
+	  margin-right: 1em;
+	  font-size: 14px;
+  }
+  .partner-wrapper {
+	  display: flex;
+	  width: 100%;
+	  justify-content: center;
+	height: 100%;
+  }
+  .partner-section {
+	  height: 10em;
+	  display: flex;
+	  flex-flow: column wrap;
+	  align-self: center;
+	  flex: 1;
+  }
+ @media (--sidebar-query) {
 	.site {
-		margin: 0 1em;
+		/*margin: 0.5em 0.5em;*/
 		display: grid;
 		grid-template-columns: 1fr;
 	}

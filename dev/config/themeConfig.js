@@ -9,8 +9,8 @@ module.exports = {
 	dev: {
 		browserSync: {
 			live: true,
-			proxyURL: 'http://localhost/wordpress/',
-			bypassPort: '8181'
+			proxyURL: 'http://localhost',
+			bypassPort: '8080'
 		},
 		browserslist: [ // See https://github.com/browserslist/browserslist
 			'> 1%',

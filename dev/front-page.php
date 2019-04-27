@@ -28,8 +28,22 @@ wp_print_styles( array( 'wprig-content', 'wprig-front-page' ) ); // Note: If thi
 		endwhile; // End of the loop.
 		?>
 		<?php the_posts_navigation(); ?>
-
 	</main><!-- #primary -->
+
+	<div class="partner-wrapper">
+		<div class="partner-section partner1">
+			<a href="https://www.w3schools.com">
+			<img border="0" alt="PArtner1" src="<?php echo THEME_IMG_PATH; ?>/logo_test.png"></a>
+		</div>
+		<div class="partner-section partner2">
+			<a href="https://www.w3schools.com">
+			<img border="0" alt="PArtner2" src="logo_w3s.gif" width="100" height="100"></a>
+		</div>
+		<div class="partner-section partner3">
+			<a href="https://www.w3schools.com">
+			<img border="0" alt="PArtner3" src="logo_w3s.gif" width="100" height="100"></a>
+		</div>
+	</div>
 
 <?php
 get_footer();

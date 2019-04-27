@@ -82,8 +82,8 @@ function wprig_setup() {
 	 */
 	add_theme_support(
 		'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 1100,
+			'width'       => 5000,
 			'flex-width'  => false,
 			'flex-height' => false,
 		)
@@ -391,3 +391,26 @@ require get_template_directory() . '/inc/customizer.php';
  * @link https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/
  */
 require get_template_directory() . '/pluggable/lazyload/lazyload.php';
+
+//abs path for images and videos
+if( !defined(THEME_IMG_PATH)){
+	define( 'THEME_IMG_PATH', get_stylesheet_directory_uri() . '/images' );
+   }
+if( !defined(THEME_VIDEO_PATH)){
+	define( 'THEME_VIDEO_PATH', get_stylesheet_directory_uri() . '/videos' );
+}
+
+/*
+*Adds the custom taxonomy function to our functions.php file.
+*/
+add_action( 'init', 'build_taxonomies', 0 );
+
+function build_taxonomies() {
+    register_taxonomy(  'artist', 'post',   //Let WordPress know that the artist taxonomy has posts
+        array(
+            'hierarchical' => false,
+            'label' => 'Artists', // This tells WordPress how to label the various user interface outlets for the artist taxonomy
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'artist', 'with_front' => false ))
+            );
+}
