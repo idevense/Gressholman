@@ -116,6 +116,7 @@ function initMainNavigation() {
  */
 function initMenuToggle() {
 	const MENUTOGGLE = SITENAV.querySelector( '.menu-toggle' );
+	const MENU = SITENAV.querySelector( '#primary-menu' );
 
 	// Return early if MENUTOGGLE is missing.
 	if ( ! MENUTOGGLE ) {
@@ -129,6 +130,10 @@ function initMenuToggle() {
 		SITENAV.classList.toggle( 'toggled-on' );
 		this.setAttribute( 'aria-expanded', 'false' === this.getAttribute( 'aria-expanded' ) ? 'true' : 'false' );
 	}, false );
+
+jQuery( MENU ).children().on( 'click', function() {
+	MENUTOGGLE.click().removeClass( 'toggled-on' );
+});
 }
 
 /**

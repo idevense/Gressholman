@@ -40,6 +40,9 @@ function wprig_setup() {
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
 	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'wprig-post-image', 800, 600, true );
+	add_image_size( 'wprig-post-thumbnail', 250, 350, true );
+	add_image_size( 'wprig-index', 470, 330, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
@@ -229,13 +232,12 @@ function wprig_fonts_url() {
 	$fonts_url = '';
 
 	/**
-	 * Translator: If Roboto Sans does not support characters in your language, translate this to 'off'.
+	 * Translator: If the font does not support characters in your language, translate this to 'off'.
 	 */
 	$roboto = esc_html_x( 'on', 'Roboto Condensed font: on or off', 'wprig' );
-	/**
-	 * Translator: If Crimson Text does not support characters in your language, translate this to 'off'.
-	 */
 	$crimson_text = esc_html_x( 'on', 'Crimson Text font: on or off', 'wprig' );
+	$rubik = esc_html_x( 'on', 'Rubik font: on or off', 'wprig' );
+	$raleway = esc_html_x( 'on', 'Raleway font: on or off', 'wprig' );
 
 	$font_families = array();
 
@@ -247,7 +249,15 @@ function wprig_fonts_url() {
 		$font_families[] = 'Crimson Text:400,400i,600,600i';
 	}
 
-	if ( in_array( 'on', array( $roboto, $crimson_text ) ) ) {
+	if ( 'off' !== $rubik ) {
+		$font_families[] = 'Rubik:400,400i,700,700i';
+	}
+
+	if ( 'off' !== $raleway ) {
+		$font_families[] = 'Raleway:400,800';
+	}
+
+	if ( in_array( 'on', array( $roboto, $crimson_text, $rubik, $raleway ) ) ) {
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
 			'subset' => urlencode( 'latin,latin-ext' ),
@@ -321,13 +331,29 @@ function wprig_styles() {
 	// Enqueue main stylesheet.
 	wp_enqueue_style( 'wprig-base-style', get_stylesheet_uri(), array(), '20180514' );
 
+	// Enqueue starwarsscroller sass stylesheet
+	//wp_enqueue_style( 'starwars-style', get_theme_file_uri( '/css/starwars.css' ), array(), '20193004');
+
+	// Enqueue animated frame sass stylesheet
+	//wp_enqueue_style( 'animated-frame-style', get_theme_file_uri( '/css/anim-frame.css' ), array(), '20193004');
+
+	// Enqueue menu sass stylesheet
+	wp_enqueue_style( 'mainmenu-style', get_theme_file_uri( '/css/mainmenu.css' ), array(), '20193004');
+
+	// Enqueue menu sass stylesheet
+	wp_enqueue_style( 'archive-artister-style', get_theme_file_uri( '/css/archive-artister.css' ), array(), '20193004');
+
+	// Enqueue Full-Page-Scroll stylesheet
+	wp_enqueue_style( 'fullpagescroll-style', get_theme_file_uri( '/css/full-page-scroll.css' ), array(), '20193004');
+
 	// Register component styles that are printed as needed.
 	wp_register_style( 'wprig-comments', get_theme_file_uri( '/css/comments.css' ), array(), '20180514' );
+	wp_register_style( 'wprig-blog', get_theme_file_uri( '/css/blog.css' ), array(), '20180514' );
 	wp_register_style( 'wprig-content', get_theme_file_uri( '/css/content.css' ), array(), '20180514' );
 	wp_register_style( 'wprig-sidebar', get_theme_file_uri( '/css/sidebar.css' ), array(), '20180514' );
 	wp_register_style( 'wprig-widgets', get_theme_file_uri( '/css/widgets.css' ), array(), '20180514' );
 	wp_register_style( 'wprig-front-page', get_theme_file_uri( '/css/front-page.css' ), array(), '20180514' );
-}
+	}
 add_action( 'wp_enqueue_scripts', 'wprig_styles' );
 
 /**
@@ -341,12 +367,15 @@ function wprig_scripts() {
 	}
 
 	// Enqueue the navigation script.
-	wp_enqueue_script( 'wprig-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20180514', false );
-	wp_script_add_data( 'wprig-navigation', 'async', true );
+	wp_enqueue_script( 'wprig-navigation', get_theme_file_uri( '/js/navigation.js' ), array( 'jquery' ), '20180514', true );
+	wp_script_add_data( 'wprig-navigation', 'async', false );
 	wp_localize_script( 'wprig-navigation', 'wprigScreenReaderText', array(
 		'expand'   => __( 'Expand child menu', 'wprig' ),
 		'collapse' => __( 'Collapse child menu', 'wprig' ),
 	));
+
+	// Enqueue the full page scroll script.
+	wp_enqueue_script( 'script', get_template_directory_uri() . '/js/full-page-scroll.js', array(), '20190503', false);
 
 	// Enqueue skip-link-focus script.
 	wp_enqueue_script( 'wprig-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), '20180514', false );
@@ -403,8 +432,6 @@ if( !defined(THEME_VIDEO_PATH)){
 /*
 *Adds the custom taxonomy function to our functions.php file.
 */
-add_action( 'init', 'build_taxonomies', 0 );
-
 function build_taxonomies() {
     register_taxonomy(  'artist', 'post',   //Let WordPress know that the artist taxonomy has posts
         array(
@@ -413,4 +440,15 @@ function build_taxonomies() {
             'query_var' => true,
             'rewrite' => array( 'slug' => 'artist', 'with_front' => false ))
             );
+}
+add_action( 'init', 'build_taxonomies', 0 );
+
+/*
+*Filter for the_excerpt so you can set a class for the P element
+*/
+add_filter( 'get_the_excerpt','wprig_filter_excerpt');
+
+function wprig_filter_excerpt( $post_excerpt ) {
+	$post_excerpt = '<p class="posted-content">' . $post_excerpt . '</p>';
+	return $post_excerpt;
 }

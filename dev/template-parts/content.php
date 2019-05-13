@@ -23,7 +23,7 @@
 			<div class="entry-meta">
 				<?php
 					wprig_posted_on();
-					wprig_posted_by();
+					//wprig_posted_by();
 					wprig_comments_link();
 				?>
 			</div><!-- .entry-meta -->
@@ -31,9 +31,7 @@
 		endif;
 		?>
 	</header><!-- .entry-header -->
-
-	<?php wprig_post_thumbnail(); ?>
-
+	<?php wprig_post_thumbnail('wprig-post-image'); ?>
 	<div class="entry-content">
 		<?php
 		the_content(
@@ -59,17 +57,18 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
+<!--
 	<footer class="entry-footer">
-		<?php
+		 <?php
 		wprig_post_categories();
 		wprig_post_tags();
 		wprig_edit_post_link();
 		?>
-	</footer><!-- .entry-footer -->
+	</footer>--><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
 
-<?php
+<!-- <?php
+/*
 if ( is_singular() ) :
 	the_post_navigation(
 		array(
@@ -83,3 +82,4 @@ if ( is_singular() ) :
 		comments_template();
 	endif;
 endif;
+*/

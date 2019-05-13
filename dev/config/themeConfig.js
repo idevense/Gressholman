@@ -10,7 +10,7 @@ module.exports = {
 		browserSync: {
 			live: true,
 			proxyURL: 'http://localhost',
-			bypassPort: '8080'
+			bypassPort: '8000'
 		},
 		browserslist: [ // See https://github.com/browserslist/browserslist
 			'> 1%',

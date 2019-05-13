@@ -35,9 +35,22 @@
 }
 
 .post-thumbnail img {
-	margin: 0 auto;
+	width: 100%;
+	max-width: 100%;
+	display: block;
 }
-
+@media (--content-query) {
+	.post-thumbnail {
+		margin: 0.5em auto;
+		max-width: var(--content-width)rem;
+		padding-right: 1.5rem;
+	}
+	.post-thumbnail img {
+		max-width: 370px;
+		margin: 0 1em 1em 0;
+		float: left;
+	}
+}
 .page-content,
 .entry-content,
 .entry-summary {
