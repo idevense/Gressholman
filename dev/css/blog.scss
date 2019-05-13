@@ -92,7 +92,10 @@ a#madeby {
 //End footer stuff
 
 @media (--wide-menu-query) {
-  .news-grid {
+	.news-grid-wrapper {
+		margin: 1em;
+	}
+	.news-grid {
 	  margin: 0 auto;
 	  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   }

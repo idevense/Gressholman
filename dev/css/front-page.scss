@@ -54,8 +54,8 @@ a#madeby {
 	&:visited {
 		color: black;
 	}
-
 }
+
 #personvern {
 	color: black;
 	text-decoration: none;
@@ -89,8 +89,8 @@ a#madeby {
 	height: calc( 100vh - 60px ) !important;
 	top: 30px;
 	left: 30px;
-
 }
+
 .buyticket {
 	display: flex;
 	flex-flow: row wrap;
@@ -100,6 +100,7 @@ a#madeby {
 			text-decoration: none;
 					}
 }
+
 #billetticon {
 	position: relative;
 	width: 3.2em;
@@ -107,6 +108,7 @@ a#madeby {
 		transform: scale(1.4);
 	}
 }
+
 .content {
 	position: relative;
 	visibility: visible;
@@ -120,18 +122,9 @@ a#madeby {
 	text-align: center;
 	padding: 0 1em;
 	background-color: var(--funky-yellow-color);
-	//opacity: var(--alpha-value);
 	overflow: hidden;
 }
-/*	animation-name: loadbg;
-	animation-duration: 3s;
-}
 
-@keyframes loadbg {
-	0%    {visibility: visible; }
-    100%  { }
-}*/
-//background-color: rgba(var(--site-transparency-overlay), var(--alpha-value));
 .site-main {
 	margin: 0 auto;
 	section {
@@ -140,10 +133,6 @@ a#madeby {
 	}
 }
 /*
-.button {
-	text-decoration: none;
-	text-transform: uppercase;
-}*/
 .home-video {
 	visibility: hidden;
 	height: 100vh;
@@ -159,7 +148,7 @@ a#madeby {
 	z-index: 0;
 }
 
-/*
+
 .home-video-wrapper {
 	position: relative;
 	width: 100%;
@@ -196,13 +185,17 @@ a#madeby {
 	height: calc( 100vh - 60px ) !important;
 	top: 30px;
 	}
+
 ul.programliste {
 	list-style: none;
 	margin: 0 auto;
 	padding: 0;
   }
 
-  h3 {padding: 0; margin: 0;}
+  h3 {
+	  padding: 0;
+	  margin: 0;
+	}
 
 
   .date {
@@ -216,6 +209,7 @@ ul.programliste {
 			font-size: .8em;
 		}
 }
+
   .events {
 	float: left;
 	width: 80%;
@@ -252,7 +246,6 @@ ul.programliste {
   @media (--narrow-menu-query) {
 
 	ul.programliste {
-
 		margin: 0;
 		padding: 0;
 		min-width: 200px;
@@ -305,6 +298,7 @@ ul.programliste {
 	left: 30px;
 	overflow-y: auto;
   }
+
   .news-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -312,12 +306,13 @@ ul.programliste {
 	align-items: center;
 	  justify-items: center;
 	  width: 98%;
-
 	  margin: 0;
 	  margin-top: 1%;
   }
+
   .news-block {
 	  width: 100%;
+	  text-decoration: none;
 
 	  .arkivtekst {
 		text-decoration: none;
@@ -337,84 +332,49 @@ ul.programliste {
 	}
   }
 
+  .excerpts-archive {
+	width: 100%;
+height: 100%;
+max-width: 470px;
+
+font-family: var(--highlight-font-family);
+font-size: 1.5em;
+border: solid 2px dotted black;
+background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'><polyline points='8.3,-18.1 34.6,12.4 8.3,43' stroke='hsla(0, 0%, 100%, .2)' fill='transparent' stroke-width='8'/></svg>");
+background-repeat: no-repeat;
+background-position: right center;
+background-size: auto 110%;
+	min-width: 280px;
+	max-height: 280px;
+  }
   @media (--wide-menu-query) {
 	.news-grid {
 		margin: 0 auto;
 		grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
 	}
 
-}
-
-	/*
-	  text-decoration: none;
-	  img {
-			display: block;
-			width: 100%;
-			max-width: 100%;
-		}
-		article.news-excerpt {
-				position: relative;
-				//margin-bottom: 1em;
-				border-bottom: dotted 1px black;
-
-				.posted-title {
-					position: absolute;
-					text-transform: uppercase;
-					margin: 0;
-					font-weight: 700;
-					font-family: var(--highlight-font-family);
-					bottom: 0.5em;
-					left: 1em;
-					background-color: rgba(255,255,255,.1);
-					color: black;
-
-				}
-
-				.posted-content {
-				  font-size: 1em;
-				  }
-
-			&:hover {
-				box-shadow: 0 25px 45px rgba(0,0,0,0.30), 0 15px 15px rgba(0,0,0,0.22);
-				background: rgba(0,0,0,.1);
-				img {
-					filter: grayscale(100%);
-				}
-			}
-		}
-	}*/
-
   .excerpts-footer {
 	  margin: .5em 0;
 	  text-decoration: none;
-
   }
+
   .excerpts-archive {
-	width: 100%;
-	height: 100%;
-	max-width: 400px;
-	max-height: 220px;
-	font-family: var(--highlight-font-family);
-	font-size: 1.5em;
-	border: solid 2px dotted black;
-	background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'><polyline points='8.3,-18.1 34.6,12.4 8.3,43' stroke='hsla(0, 0%, 100%, .2)' fill='transparent' stroke-width='8'/></svg>");
-	background-repeat: no-repeat;
-	background-position: right center;
-	background-size: auto 110%;
+	min-width: 330px;
+	max-height: 330px;
 	  .button {
 		  display: block;
 		  height: 100%;
 		  width: 100%;
-
-
 		}
 		.arkivtekst {
     		overflow: hidden;
 		}
   }
+
   .partner-wrapper {
 	overflow: hidden;
   }
+
   .partner-heading {
 	  display: flex;
 	  justify-content: center;
@@ -440,7 +400,7 @@ ul.programliste {
   .partner-section:not(:first-child) {
 	flex: 1;
   }
-
+  }//end wide menu
 @media (--content-query) {
 
 	#kopibeskyttelse, a#madeby {

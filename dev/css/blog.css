@@ -90,7 +90,6 @@ figure.hover-news.hover:before {
 @media (--wide-menu-query) {
 	figure.hover-news {
 		min-width: 330px;
-		max-width: 470px;
 		max-height: 330px; } }
 
 .news-grid-wrapper {
@@ -174,6 +173,8 @@ a#madeby {
 		color: black; }
 
 @media (--wide-menu-query) {
+	.news-grid-wrapper {
+		margin: 1em; }
 	.news-grid {
 		margin: 0 auto;
 		grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); } }
