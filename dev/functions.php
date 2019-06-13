@@ -331,17 +331,14 @@ function wprig_styles() {
 	// Enqueue main stylesheet.
 	wp_enqueue_style( 'wprig-base-style', get_stylesheet_uri(), array(), '20180514' );
 
-	// Enqueue starwarsscroller sass stylesheet
-	//wp_enqueue_style( 'starwars-style', get_theme_file_uri( '/css/starwars.css' ), array(), '20193004');
-
-	// Enqueue animated frame sass stylesheet
-	//wp_enqueue_style( 'animated-frame-style', get_theme_file_uri( '/css/anim-frame.css' ), array(), '20193004');
-
 	// Enqueue menu sass stylesheet
 	wp_enqueue_style( 'mainmenu-style', get_theme_file_uri( '/css/mainmenu.css' ), array(), '20193004');
 
-	// Enqueue menu sass stylesheet
+	// Enqueue artister stylesheet
 	wp_enqueue_style( 'archive-artister-style', get_theme_file_uri( '/css/archive-artister.css' ), array(), '20193004');
+
+	// Enqueue praktisk stylesheet
+	wp_enqueue_style( 'page-praktisk-style', get_theme_file_uri( '/css/praktisk.css' ), array(), '20193004');
 
 	// Enqueue Full-Page-Scroll stylesheet
 	wp_enqueue_style( 'fullpagescroll-style', get_theme_file_uri( '/css/full-page-scroll.css' ), array(), '20193004');
@@ -375,7 +372,21 @@ function wprig_scripts() {
 	));
 
 	// Enqueue the full page scroll script.
-	wp_enqueue_script( 'script', get_template_directory_uri() . '/js/full-page-scroll.js', array(), '20190503', false);
+	wp_enqueue_script( 'wprig-fullpagescroll-script', get_template_directory_uri() . '/js/full-page-scroll.js', array(), '20190503', false);
+
+	// Enqueue mobilevh script.
+	wp_enqueue_script( 'wprig-mobilevh-script', get_template_directory_uri() . '/js/mobilevh.js', array(), '20190503', false);
+
+	// Enqueue praktisk script.
+	wp_enqueue_script( 'wprig-praktisk-script', get_template_directory_uri() . '/js/praktisk.js', array( 'jquery' ), '20190503', true);
+
+	// Enqueue googlemap script.
+	wp_enqueue_script( 'wprig-googlemap-script', get_template_directory_uri() . '/js/googlemap.js', array(), '20190503', true);
+
+	wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCt4_GIl1bR-kx3cerAXl53_4PzbM0v1YE&callback=initMap', array('wprig-googlemap-script'), null, true);
+
+	// Enqueue randomizer animation delay script.
+	//wp_enqueue_script( 'wprig-randomizer-script', get_template_directory_uri() . '/js/randomizer.js', array(), '20190503', true);
 
 	// Enqueue skip-link-focus script.
 	wp_enqueue_script( 'wprig-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), '20180514', false );

@@ -53,6 +53,10 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
+#: custom-page-template.php:3
+msgid "Custom Page Template"
+msgstr ""
+
 #: footer.php:13
 msgid "Main menu"
 msgstr ""
@@ -165,11 +169,11 @@ msgstr ""
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:373
+#: functions.php:370
 msgid "Expand child menu"
 msgstr ""
 
-#: functions.php:374
+#: functions.php:371
 msgid "Collapse child menu"
 msgstr ""
 
@@ -261,6 +265,10 @@ msgstr ""
 
 #: inc/template-tags.php:292
 msgid "Next attachment:"
+msgstr ""
+
+#: praktisk-template.php:3
+msgid "Praktisk Template"
 msgstr ""
 
 #: template-parts/content-none.php:13

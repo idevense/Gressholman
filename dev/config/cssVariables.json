@@ -6,7 +6,8 @@
   	"global-font-family": "'Rubik', sans-serif",
 		"global-font-size": "12",
 		"global-font-line-height": "1.4",
-		"highlight-font-family": "'Roboto Condensed', sans-serif",
+    "highlight-font-family": "'Roboto Condensed', sans-serif",
+    "starwars-font-family": "'Raleway', sans-serif",
 		"content-width": "50",
 		"dropdown-symbol-width": "0.7em",
 		"small-font-size": "16",
@@ -22,6 +23,7 @@
 		"wide-menu-query": "screen and (min-width: 37.5em)",
 		"content-query": "screen and (min-width: 48em)",
     "sidebar-query": "screen and (min-width: 60em)",
-    "narrow-height": "screen and (max-height: 37.5em)"
+    "narrow-height": "screen and (max-height: 375px)",
+    "testytest": "screen and (max-height: 500px)"
 	}
 }

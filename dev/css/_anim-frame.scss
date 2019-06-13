@@ -1,4 +1,4 @@
-@media( --content-query ) { /*screen and (min-width: 769px) {
+@media( --content-query ) {
     /* Animated Frame */
     .l1,.l2,.l3,.l4,.l5,.l6 {
         position: fixed;
@@ -23,7 +23,7 @@
 		animation-name: l1;
 		animation-delay: .8s;
         -webkit-animation-name: l1;
-        -webkit-animation-delay: .8s;
+		-webkit-animation-delay: .8s;
     }
 
     .l2 {
@@ -83,62 +83,62 @@
 
 	@keyframes l1 {
         0%    { height: 0; background: #121010; }
-        100%  { height: calc(100% - 60px); background: #121010; }
+        100%  { height: calc((var(--vh) * 100) - 60px); background: #121010; }
     }
 
     @keyframes l2 {
         0%    { width: 0; background: #121010; }
-        100%  { width: calc(50% - 30px); background: #121010; }
+        100%  { width: calc((var(--vw) * 50) - 30px); background: #121010; }
     }
 
     @keyframes l3 {
         0%    { height: 0; background: #121010; }
-        100%  { height: calc(100% - 60px); background: #121010; }
+        100%  { height: calc((var(--vh) * 100) - 60px); background: #121010; }
     }
 
     @keyframes l4 {
         0%    { width: 0; background: #121010; }
-        100%  { width: calc(50% - 30px); background: #121010; }
+        100%  { width: calc((var(--vw) * 50) - 30px); background: #121010; }
     }
 
     @keyframes l5 {
         0%    { width: 0; background: #121010; }
-        100%  { width: calc(50% - 30px); background: #121010; }
+        100%  { width: calc((var(--vw) * 50) - 30px); background: #121010; }
     }
 
     @keyframes l6 {
         0%    { width: 0; background: #121010; }
-        100%  { width: calc(50% - 30px); background: #121010; }
+        100%  { width: calc((var(--vw) * 50) - 30px); background: #121010; }
     }
 
 
 	@-webkit-keyframes l1 {
         0%    { height: 0; background: #121010; }
-        100%  { height: calc(100% - 60px); background: #121010; }
+        100%  { height: calc((var(--vh) * 100) - 60px); background: #121010; }
     }
 
     @-webkit-keyframes l2 {
         0%    { width: 0; background: #121010; }
-        100%  { width: calc(50% - 30px); background: #121010; }
+        100%  { width: calc((var(--vw) * 50) - 30px); background: #121010; }
     }
 
     @-webkit-keyframes l3 {
         0%    { height: 0; background: #121010; }
-        100%  { height: calc(100% - 60px); background: #121010; }
+        100%  { height: calc((var(--vh) * 100) - 60px); background: #121010; }
     }
 
     @-webkit-keyframes l4 {
         0%    { width: 0; background: #121010; }
-        100%  { width: calc(50% - 30px); background: #121010; }
+        100%  { width: calc((var(--vw) * 50) - 30px); background: #121010; }
     }
 
     @-webkit-keyframes l5 {
         0%    { width: 0; background: #121010; }
-        100%  { width: calc(50% - 30px); background: #121010; }
+        100%  { width: calc((var(--vw) * 50) - 30px); background: #121010; }
     }
 
     @-webkit-keyframes l6 {
         0%    { width: 0; background: #121010; }
-        100%  { width: calc(50% - 30px); background: #121010; }
+        100%  { width: calc((var(--vw) * 50) - 30px); background: #121010; }
     }
 }

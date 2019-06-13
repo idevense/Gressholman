@@ -61,5 +61,4 @@ else:
 	</main><!-- #primary -->
 
 <?php
-
 get_footer();

@@ -25,17 +25,16 @@ body, html {
 
 .dots {
 	z-index: 1;
-/*	visibility: hidden;*/
 	list-style: none;
 	padding: 0;
 	position: absolute;
 	top: 50%;
 	margin: 0;
-    -webkit-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
 	-o-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 .dots li a {
@@ -84,10 +83,4 @@ body, html {
 
 .dots-left {
 	left: 3px;
-}
-
-@media (--wide-menu-query) {
-	.dots {
-		visibility: visible;
-	}
 }

@@ -34,16 +34,18 @@
 				</button>
 
 				<div class="primary-menu-container">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img class="logo-trnsp" alt="" src="<?php echo THEME_IMG_PATH; ?>/logo_gressholman_trnsp.png"></a>
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'primary',
-							'menu_id'        => 'primary-menu',
-							'container'      => 'ul',
-						)
-					);
-					?>
+					<div id="menuborder">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img class="logo-trnsp" alt="" src="<?php echo THEME_IMG_PATH; ?>/logo_gressholman_trnsp.png"></a>
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'primary',
+									'menu_id'        => 'primary-menu',
+									'container'      => 'ul',
+								)
+							);
+						?>
+					</div>
 				</div>
 			</nav><!-- #site-navigation -->
 
@@ -65,7 +67,6 @@
 				<div id="socialicons">
 					<a class="iconcontainer mailicon" href="mailto:post@gressholman.no">
 						<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="1254 4629.759 13.025 10.233">
-    						<defs><style>.cls-1{fill:#121010}</style></defs>
    				 			<g id="envelope" data-name="envelope" transform="translate(1254 4629.759)">
      			   			<g id="Group_368" data-name="Group 368">
        			     			<path id="Path_460" d="M1.25 57.974q.247.174 1.49 1.036t1.9 1.326l.309.222q.236.171.392.276t.378.236a2.193 2.193 0 0 0 .418.2 1.151 1.151 0 0 0 .363.065h.02a1.152 1.152 0 0 0 .363-.065 2.195 2.195 0 0 0 .418-.2q.222-.131.378-.236t.392-.276l.309-.222 3.4-2.362a3.453 3.453 0 0 0 .887-.894 1.919 1.919 0 0 0 .356-1.1 1.173 1.173 0 0 0-1.163-1.163H1.163A1.038 1.038 0 0 0 .3 55.2a1.467 1.467 0 0 0-.3.945 1.7 1.7 0 0 0 .4.992 3.608 3.608 0 0 0 .85.837z" class="cls-1" data-name="Path 460" transform="translate(0 -54.82)"/>
@@ -81,7 +82,6 @@
 					</a>
 					<a class="iconcontainer facebookicon" href="https://www.facebook.com/Gressholman-192343370829140/" target="_blank">
 					<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="1276.77 4629 6.288 11.631">
-						<defs><style>.cls-1{fill:#121010}</style></defs>
 						<g id="facebook-logo" data-name="facebook-logo" transform="translate(1276.77 4629)">
 							<path id="Path_458" d="M28.128 0H26.62a2.649 2.649 0 0 0-2.79 2.862v1.32h-1.516a.237.237 0 0 0-.237.237v1.913a.237.237 0 0 0 .237.237h1.517v4.825a.237.237 0 0 0 .237.237h1.979a.237.237 0 0 0 .237-.237V6.569h1.773a.237.237 0 0 0 .237-.237V4.419a.237.237 0 0 0-.237-.237h-1.773V3.063c0-.538.128-.811.829-.811h1.016a.237.237 0 0 0 .237-.237V.24a.237.237 0 0 0-.238-.24z" class="cls-1" data-name="Path 458" transform="translate(-22.077)"/>
 						</g>
@@ -102,7 +102,7 @@
 		<?php echo '<script>console.log("blog")</script>';
 	}
 	 else {
-		echo '<script>console.log("Yalt anna")</script>';
+		echo '<script>console.log("alt anna")</script>';
 	 }?>
 
 <?php wp_footer(); ?>

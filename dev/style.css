@@ -436,9 +436,15 @@ template {
   max-width: 100%;
 }
 
+@media (--content-query) {
+	article.page {
+		max-width: var(--content-width)rem;
+		margin: 0 auto;
+	}
+}
 @media (--sidebar-query) {
-	.has-sidebar .site {
-	/*margin: 0.5em 0.5em;*/
+/*	.has-sidebar .site {
+	/*margin: 0.5em 0.5em;
 		display: grid;
 		grid-template-columns: 3fr 1fr;
 		grid-gap: 2rem;
@@ -462,12 +468,34 @@ template {
 
 	.site-footer {
 		grid-column: span 2;
-	}
+	}*/
 }
 
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
+@font-face {
+	font-family: 'Coaster-Black';
+	src: url('fonts/CoasterBlack.TTF') format('truetype');
+    font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: 'coasterblack';
+	src: url('/fonts/coaster.woff2') format('woff2'),
+		 url('/fonts/coaster.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'coaster_shadowregular';
+    src: url('fonts\coastershadow-webfont.woff2') format('woff2'),
+         url('fonts\coastershadow-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body,
 button,
 input,
@@ -773,14 +801,14 @@ textarea {
 	color: #757575;
 }
 @media (--wide-menu-query) {
-	.site-header {
+/*	.site-header {
 		width: 100%;
 		flex-flow: column nowrap;
 	}
 	.site-branding {
 		width: auto;
 	}
-}
+*/}
 /*--------------------------------------------------------------
 ## Main navigation menu
 --------------------------------------------------------------*/
@@ -797,17 +825,7 @@ textarea {
 	background: transparent;
 	color: black;
 	outline: none;
-	z-index: 9999;
-}
-
-@media (--narrow-menu-query) {
-	.menu-toggle {
-		top: 15px;
-		right: 15px;
-	}
-}
-
-@media (--wide-menu-query) {
+	z-index: 9999 !important;
 }
 
 

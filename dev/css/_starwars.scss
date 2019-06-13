@@ -1,0 +1,41 @@
+/**
+ * Starwars stuff
+ */
+ /*#FFFF82;*/
+
+ #starwars-board {
+	flex: 0 0 1;
+	-ms-flex: 0 0 1;
+	-webkit-box-flex: 0;
+	perspective: 300px;
+	-webkit-perspective: 300px;
+	overflow: hidden;
+	width: 100%;
+	max-height: 500px;
+	display: none;
+	//opacity: 0;
+	//animation: 1s ease .5s normal forwards 1 fadein;
+}
+
+#starwars-content {
+	font-family: var(--starwars-font-family);// Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+	font-weight: 700;
+	font-size: 150%;
+	color: black;//var(--funky-yellow-color);
+	background: transparent;
+	transform: rotateX(25deg);
+	-webkit-transform: rotateX(25deg);
+	animation: animateCrawl 20s ease-in infinite;
+	-webkit-animation: animateCrawl 20s ease-in infinite;
+	width: 100%;
+}
+
+@keyframes animateCrawl {
+    0%   { -webkit-transform: rotateX(25deg) translateY(400px); transform: rotateX(25deg) translateY(400px); }
+    100% { -webkit-transform: rotateX(25deg) translateY(-720px); transform: rotateX(25deg) translateY(-720px); }
+}
+
+@-webkit-keyframes animateCrawl {
+    0%   { -webkit-transform: rotateX(25deg) translateY(400px); transform: rotateX(25deg) translateY(400px); }
+    100% { -webkit-transform: rotateX(25deg) translateY(-720px); transform: rotateX(25deg) translateY(-720px); }
+}

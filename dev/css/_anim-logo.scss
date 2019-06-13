@@ -1,0 +1,26 @@
+@keyframes gh {
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+#estivalen {
+stroke-dasharray: 1000;
+stroke-dashoffset: 1000;
+animation: gh 2s linear forwards;
+}
+#ressholman {
+	stroke-dasharray: 500;
+	stroke-dashoffset: 500;
+	animation: gh 2s linear 2s forwards;
+}
+#F {
+	stroke-dasharray: 500;
+	stroke-dashoffset: 500;
+	animation: gh 2s linear 2s forwards;
+}
+#G {
+	stroke-dasharray: 500;
+	stroke-dashoffset: 500;
+	animation: gh .2s linear forwards;
+}

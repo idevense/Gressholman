@@ -2,16 +2,22 @@
  * Custom styles for the front-page.php template.
  */
  @import "anim-frame";
+ @import "starwars";
  @import "hover-news";
+
 
  body, html {
 	 height: 100vh;
+	 height: calc(var(--vh) * 100);
 	 margin: 0;
  }
  * {
 	 box-sizing: border-box;
  }
 
+ .menu-toggle {
+	z-index: 9999 !important;
+}
  #bottomline {
 	position: fixed;
 	display: flex;
@@ -21,13 +27,12 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
 	height: 30px;
 	font-size: 0.8em;
 	text-decoration: none;
 	color: var(--global-font-color);
 	font-family: var(--global-font-family);
+	z-index: 9999;
 }
 #socialicons {
 	left: 50%;
@@ -63,6 +68,25 @@ a#madeby {
 		color: black;
 	}
 }
+
+.content {
+	position: relative;
+	visibility: visible;
+	display: flex;
+    justify-content: center;
+    flex-direction: column;
+	text-align: center;
+	padding: 0 1em;
+	width: calc(100vw - 60px);
+	//width: calc((var(--vw) * 100) - 60px);
+	height: calc(100vh - 60px);
+	height: calc((var(--vh) * 100) - 60px);
+	top: 30px;
+	left: 30px;
+	background-color: var(--funky-yellow-color);
+	overflow: hidden;
+}
+
  .rotate {
 	vertical-align:top;
 	/*margin-top:23px;
@@ -84,13 +108,91 @@ a#madeby {
  }
 */
 
-.front-page-title {
-	width: calc( 100vw - 60px ) !important;
-	height: calc( 100vh - 60px ) !important;
-	top: 30px;
-	left: 30px;
+#frontvideo {
+	width: 100% !important;
+	height: auto !important;
+	flex: 2;
+	opacity: 0;
+	-webkit-animation: 1s ease 2.5s normal forwards 1 fadein;
+	animation: 1s ease 2.5s normal forwards 1 fadein;
+
 }
 
+.front-page-title::before {
+	//position: absolute;
+	//content: "";
+	//background-image: url("../images/gressholman.jpg");
+	//-webkit-background-size: cover;
+	//-moz-background-size: cover;
+	//-o-background-size: cover;
+	//background-size: cover;
+	//background-repeat: no-repeat;
+	//top: 0;
+	//right: 0;
+	//left: 0;
+	//bottom: 0;
+	//z-index: 1;
+	//opacity: 0;
+	//-webkit-animation: 1s ease .5s normal forwards 1 fadein;
+	//animation: 1s ease .5s normal forwards 1 fadein;
+
+}
+
+.front-page-title {
+	//justify-content: flex-start !important;
+	overflow: hidden;
+	border: 2px solid black;
+	margin: 0;
+	padding: 0;
+	background-color: var(--funky-yellow-color);
+	* {
+		z-index: 2;
+	}
+	.texttitle {
+		display: none;
+	}
+
+	.logotitle {
+		width: 100%;
+		height: auto;
+		opacity: 0;
+		-webkit-animation: 1s ease .5s normal forwards 1 fadein;
+		animation: 1s ease .5s normal forwards 1 fadein;
+
+	}
+	#front-page-header {
+		height: auto;
+		width: 100%;
+		padding: 1em;
+		display: none;
+		flex: 1;
+	}
+	#getticket {
+		display: none;
+		margin: 0 auto;
+		outline: none;
+		flex: 1;
+		white-space: nowrap;
+		-webkit-animation: 1s ease .5s normal forwards 1 fadein;
+		animation: 1s ease .5s normal forwards 1 fadein;
+		opacity: 0;
+		a {
+			text-decoration: none;
+			font-family: var(--highlight-font-family);
+			h1 {
+				padding-left: 3px;
+				padding-right: 3px;
+				border: 2px solid black;
+				border-radius: 5px;
+			}
+		}
+	}
+}
+
+@keyframes fadein{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
 .buyticket {
 	display: flex;
 	flex-flow: row wrap;
@@ -105,84 +207,25 @@ a#madeby {
 	position: relative;
 	width: 3.2em;
 	&:hover {
+		-webkit-transform: scale(1.4);
 		transform: scale(1.4);
 	}
 }
 
-.content {
-	position: relative;
-	visibility: visible;
-    width: calc( 100vw - 60px ) !important;
-	height: calc( 100vh - 60px ) !important;
-	top: 30px;
-	left: 30px;
-	display: flex;
-    justify-content: center;
-    flex-direction: column;
-	text-align: center;
-	padding: 0 1em;
-	background-color: var(--funky-yellow-color);
-	overflow: hidden;
-}
 
 .site-main {
 	margin: 0 auto;
 	section {
 		height: 100vh;
+		height: calc(var(--vh) * 100) !important;
 		margin: 0 auto;
 	}
-}
-/*
-.home-video {
-	visibility: hidden;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	object-fit: fill;
-	min-width: 100%;
-	min-height: 100%;
-	z-index: 0;
-}
-
-
-.home-video-wrapper {
-	position: relative;
-	width: 100%;
-}
-.home-video {
-	display: flex;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-}
-
-.home-overlay {
-	//display: none;
-	//background-color: rgba(0,0,0,.7);
-	height: 100vh;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-}*/
-
-.informasjon-content {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-flow: row wrap;
 }
 
 .program-wrapper {
 	background-color: var(--funky-yellow-color);
-	height: calc( 100vh - 60px ) !important;
+	height: calc(100vh - 60px);
+	height: calc((var(--vh) * 100) - 60px) !important;
 	top: 30px;
 	}
 
@@ -191,12 +234,25 @@ ul.programliste {
 	margin: 0 auto;
 	padding: 0;
   }
+  #lokasjon .map-wrapper {
+	  border: solid 2px black;
+	  padding: 0;
+  }
 
+  #map {
+	  width: 100%;
+	  height: 100%;
+  }
+
+@media (--narrow-height) {
+	ul.programliste {
+		font-size: .8em;
+	}
+}
   h3 {
 	  padding: 0;
 	  margin: 0;
 	}
-
 
   .date {
 	width: 17%;
@@ -224,6 +280,7 @@ ul.programliste {
 		li{
 			padding: .5em;
 			border-bottom: 1px dashed #333;
+			-webkit-transition: ease .4s all;
 			transition: ease .4s all;
 			&:hover {
 				background: rgba(0,0,0,.1);
@@ -244,7 +301,27 @@ ul.programliste {
   }
 
   @media (--narrow-menu-query) {
+	#starwars-board {
+		display: block !important;
+	}
+	.front-page-title {
+		background-color: var(--funky-yellow-color);
+		justify-content: space-evenly !important;
 
+	#front-page-header {
+
+		display: block !important;
+	}
+	#frontvideo {
+		animation: 1s ease .5s normal forwards 1 fadein;
+		-webkit-animation: 1s ease .5s normal forwards 1 fadein;
+		display: none !important;
+
+	}
+	#getticket {
+		display: block !important;
+	}
+}
 	ul.programliste {
 		margin: 0;
 		padding: 0;
@@ -280,6 +357,9 @@ ul.programliste {
 	li.date p {
 	  margin:0;
 	}
+	#bottomline {
+		justify-content: center;
+	}
   }
 //END NARROW-MENU-QUERY
 
@@ -291,9 +371,11 @@ ul.programliste {
 
   .news-grid-wrapper {
 	  position: relative;
-	//  background-color: rgba(var(--funky-yellow-color), var(--alpha-value));
-	width: calc( 100vw - 60px ) !important;
-	height: calc( 100vh - 60px ) !important;
+	  display: flex;
+	justify-content: center;
+	width: calc(100vw - 60px) !important;
+	height: calc(100vh - 60px);
+	height: calc((var(--vh) * 100) - 60px ) !important;
 	top: 30px;
 	left: 30px;
 	overflow-y: auto;
@@ -304,10 +386,8 @@ ul.programliste {
 	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 	grid-auto-rows: 1fr;
 	align-items: center;
-	  justify-items: center;
-	  width: 98%;
-	  margin: 0;
-	  margin-top: 1%;
+	justify-items: center;
+	margin: 0;
   }
 
   .news-block {
@@ -333,19 +413,18 @@ ul.programliste {
   }
 
   .excerpts-archive {
-	width: 100%;
-height: 100%;
-max-width: 470px;
-
-font-family: var(--highlight-font-family);
-font-size: 1.5em;
-border: solid 2px dotted black;
-background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'><polyline points='8.3,-18.1 34.6,12.4 8.3,43' stroke='hsla(0, 0%, 100%, .2)' fill='transparent' stroke-width='8'/></svg>");
-background-repeat: no-repeat;
-background-position: right center;
-background-size: auto 110%;
-	min-width: 280px;
-	max-height: 280px;
+	  width: 100%;
+	  height: 100%;
+	  max-width: 470px;
+	  font-family: var(--highlight-font-family);
+	  font-size: 1.5em;
+	  border: solid 2px dotted black;
+	  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'><polyline points='8.3,-18.1 34.6,12.4 8.3,43' stroke='hsla(0, 0%, 100%, .2)' fill='transparent' stroke-width='8'/></svg>");
+	  background-repeat: no-repeat;
+	  background-position: right center;
+	  background-size: auto 110%;
+	  min-width: 280px;
+	  max-height: 280px;
   }
   @media (--wide-menu-query) {
 	.news-grid {
@@ -401,15 +480,175 @@ background-size: auto 110%;
 	flex: 1;
   }
   }//end wide menu
-@media (--content-query) {
+
+  @media (--content-query) {
+	.menu-toggle {
+		color: var(--global-font-color);
+	}
+	#bottomline {
+		color: var(--global-font-color);
+		fill: black;
+		padding: 0 30px 0 30px;
+	}
 
 	#kopibeskyttelse, a#madeby {
 		visibility: visible;
+	}
+	.front-page-title::before {
+		animation: 1s ease 2.5s normal forwards 1 fadein;
+		-webkit-animation: 1s ease 2.5s normal forwards 1 fadein;
+	}
+
+	.front-page-title {
+		//flex-flow: row nowrap;
+		width: calc(100vw - 64px) !important;
+		height: calc(100vh -64px);
+		height: calc((var(--vh) * 100) - 64px) !important;
+		top: 32px !important;
+		left: 32px !important;
+		border: 0;
+		padding: 0;
+	#front-page-header {
+		//flex: 0 0 40%;
+		.logotitle {
+			-webkit-animation: 1s ease 2.5s normal forwards 1 fadein;
+			animation: 1s ease 2.5s normal forwards 1 fadein;
+		}
+	}
 	}
 
 	.news-block article.news-excerpt {
 		margin-bottom: 0;
 		border-bottom: 0;
 	}
+	.news-grid-wrapper {
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: space-between;
 
+	}
+	.news-header h2 {
+		font-family: 'coasterblack';
+	}
+	.news-grid {
+		width: 100%;
+		grid-gap: 2em;
+		padding: 2em;
+	}
+	#lokasjon .map-wrapper {
+		border: none;
+		padding: 0;
+	}
+}
+/*
+* Billetter section
+*/
+#billetter .content {
+	padding: 0;
+
+}
+#billetter-wrapper {
+	margin: .5em;
+	height: 100%;
+	max-height: calc(100% - .5em);
+	max-width: calc(100% - .5em);
+	display:flex;
+	flex-flow: column nowrap;
+	justify-content: space-around;
+	align-items: center;
+		* {
+			color: var(--funky-yellow-color);
+			font-family: var(--highlight-font-family);
+			margin: 0;
+			}
+
+	.billett {
+		flex: 0 1 auto;
+		padding: 0.5em 1em;
+		  margin: 0.25em 0;
+		  max-width: 100%;
+		  min-width: 100%;
+		  &:not(:last-child) {
+			  border-radius: 0;
+			border-bottom: dotted 1px black;
+		}
+		.buyticket {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: space-between;
+			align-items: center;
+			white-space: nowrap;
+			flex: 0 1 auto;
+			* {
+				color: black;
+			}
+		}
+		.buttonbuyticket {
+			padding: 0.5em 1em;
+			  margin: 0.25em 0;
+			  text-decoration: none;
+			  border-radius: 1em;
+			  max-height: 8em;
+			  flex: 0 1 auto;
+
+			  &:hover {
+				  -webkit-animation: waggle 1s ease-out forwards;
+				animation: waggle 1s ease-out forwards;
+			}
+		}
+
+	}
+}
+.waggle {
+	background-color: transparent;
+}
+
+@keyframes waggle {
+	0% {
+	  transform: none;
+	}
+	50% {
+	  transform: rotateZ(-20deg) scale(1.2);
+	}
+	60% {
+	  transform: rotateZ(25deg) scale(1.2);
+	}
+	67.5% {
+	  transform: rotateZ(-15deg) scale(1.2);
+	}
+	75% {
+	  transform: rotateZ(15deg) scale(1.2);
+	}
+	82.5% {
+	  transform: rotateZ(-12deg) scale(1.2);
+	}
+	85% {
+	  transform: rotateZ(0) scale(1.2);
+	}
+	100% {
+	  transform: rotateZ(0) scale(1);
+	}
+  }
+
+@media (--wide-menu-query) {
+	#billetter-wrapper {
+		flex-flow: row nowrap;
+		justify-content: space-around;
+		align-items: center;
+
+		.billett {
+			padding: 0;
+			flex: 0 1 30%;
+			border: solid 2px black;
+			border-radius: 1em;
+			min-width: 0;
+			&:not(:last-child) {
+				border-radius: 1em;
+				border-bottom: solid 2px black;
+			}
+		}
+		.buttonbuyticket {
+			max-height: 11em !important;
+		}
+	}
 }
