@@ -383,7 +383,7 @@ function wprig_scripts() {
 	// Enqueue googlemap script.
 	wp_enqueue_script( 'wprig-googlemap-script', get_template_directory_uri() . '/js/googlemap.js', array(), '20190503', true);
 
-	wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCt4_GIl1bR-kx3cerAXl53_4PzbM0v1YE&callback=initMap', array('wprig-googlemap-script'), null, true);
+	wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key_insert_api_key_here_=initMap', array('wprig-googlemap-script'), null, true);
 
 	// Enqueue randomizer animation delay script.
 	//wp_enqueue_script( 'wprig-randomizer-script', get_template_directory_uri() . '/js/randomizer.js', array(), '20190503', true);
