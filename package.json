@@ -14,7 +14,7 @@
     "url": "https://github.com/wprig/wprig/issues"
   },
   "dependencies": {
-    "npm": "^6.9.0"
+    "npm": "^11.4.2"
   },
   "devDependencies": {
     "ajv": "^6.5.0",
@@ -44,7 +44,7 @@
     "gulp-phpcs": "^2.1.0",
     "gulp-postcss": "^7.0.1",
     "gulp-print": "^5.0.0",
-    "gulp-sass": "^4.0.0",
+    "gulp-sass": "^6.0.1",
     "gulp-sort": "^2.0.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-string-replace": "^1.0.0",
